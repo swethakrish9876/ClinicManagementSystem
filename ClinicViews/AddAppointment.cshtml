@@ -1,1 +1,140 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ProjectClinic.Models.Appointment
 
+<img src="~/Images/Stone-Clinic-Logo.png" alt="Logo" align="left" height="100" width="100" />
+<br />
+
+<head>
+    @*<link href="~/css/MyStyleSheet.css" rel="stylesheet" />*@
+    <link href="~/css/style.css" rel="stylesheet" />
+   
+</head>
+
+
+<body style="background-color:darkslategrey">
+    @*<div class="topnav" style="text-align:center">*@
+
+        <div class="dropdwn">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Clinic Administration<i class="fas fa-caret-down"></i></a>
+
+                            <ul>
+                                <li> <a asp-controller="Home" asp-action="DoctorInformation">DoctorDetails</a></li>
+                                <li> <a asp-area="" asp-controller="Home" asp-action="ScheduleInformation" align="right">ScheduleDetails</a></li>
+                            </ul>
+                               <li><a class="active" asp-action="AddDoctor" asp-controller="Home" method="Post">AddDoctor</a></li> 
+                               <li><a class="active" asp-action="AddPatient" asp-controller="Home" method="Post">AddPatient</a></li> 
+                                <li><a class="active" asp-action="AddAppointment" asp-controller="Home" method="Post">AddAppointment</a></li>
+                               <li><a class="active" asp-action="CancelAppointment" asp-controller="Home" method="Post">CancelAppointment</a></li> 
+                              
+                               <li><a class="active" asp-action="Index" asp-controller="Home" method="Post">Logout</a></li>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+
+</body>
+
+
+
+
+
+<br /><br />
+<center><h1>Schedule Your Appointment</h1></center>
+@using (Html.BeginForm("AppValidate", "Home", FormMethod.Post))
+{
+    <style>
+        body {
+            background-image: url("/images/DocBG.jpg");
+        }
+    </style>
+
+    <table align="center">
+
+        <tr>
+            <td>
+                PatientId:
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.PatientId)
+                @Html.ValidationMessageFor(m => m.PatientId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Specialisation:
+            </td>
+            <td>
+                <select class="specialization" name="Specialisation">
+                    <option value="  ">  </option>
+                    <option value="General">General</option>
+                    <option value="Internal Medicine">Internal Medicine</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                    <option value="Ophthalmology">Ophthalmology</option>
+
+                </select>
+                @Html.ValidationMessageFor(m => m.Specialisation)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                Doctor:
+            </td>
+            <td>
+
+                <select name="Doctor">
+                    <option value="select"> Select </option>
+                    <option value="Boobalan K">Boobalan K</option>
+                    <option value="Dhandapani D">Dhandapani D</option>
+                    <option value="Sasikumar P">Sasikumar P</option>
+                    <option value="Ganesh P">Ganesh P</option>
+                    <option value="Kaviya D">Kaviya D</option>
+                    <option value="Dhayazhini G">Dhayazhini G</option>
+                    <option value="Vignesh D">Vignesh D</option>
+                    <option value="Sounder B">Sounder B</option>
+
+                </select>
+                @Html.ValidationMessageFor(m => m.Doctor)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                Visit_Date:
+            </td>
+            <td>
+                <br />
+                <input type="date" name="Visit_Date" required="Required" /><br />
+                @Html.ValidationMessageFor(m => m.Visit_Date)
+            </td>
+        </tr>
+        <tr>
+            <td><br />
+                Appointment_Time:
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Appointment_Time)
+                @Html.ValidationMessageFor(m => m.Appointment_Time)
+            </td>
+        </tr>
+
+        
+    </table><br />
+
+
+
+    <center><input type="submit" value="Book Appointment" style="background-color:mediumspringgreen" /></center>
+    
+
+}
