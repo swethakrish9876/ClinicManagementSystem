@@ -1,0 +1,76 @@
+﻿/*body {
+}*/
+/*Add a black Background color*/
+.topnav {
+    background-color: darkslategrey;
+    overflow: hidden;
+}
+.form-box {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    margin: 6% auto;
+    background: darkslategrey;
+    padding: 5px;
+    overflow: hidden;
+}
+
+/*style the links inside NavBar*/
+
+.topnav a {
+    float: left;
+    color: darkslategrey;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/*change links on hover*/
+    .topnav a:hover {
+        background-color: darkslategrey;
+        color: black;
+    }
+
+/*Add color to active or current link*/
+
+    .topnav a.active {
+        background-color: darkslategrey;
+        color: white;
+    }
+
+    .dropdown{
+        margin:0 auto;
+    }
+
+    nav{
+        height:60px;
+        background:darkslategrey;
+        box-shadow:0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        float: right;
+        margin-right: 30px;
+    }
+    nav ul li {
+        background: #2c3e50;
+        position: relative;
+        list-style: none;
+        display: inline-block;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 0 15px;
+        color: white;
+        text-decoration: none;
+        line-height: 60px;
+        font-size: 20px;
+    }
+
+    nav ul li a:hover {
+        background: #243342;
+    }
