@@ -1,0 +1,122 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ProjectClinic.Models.Doctor
+
+<img src="~/Images/Stone-Clinic-Logo.png" alt="Logo" align="left" height="100" width="100" />
+<br />
+
+<head>
+    <link href="~/css/MyStyleSheet.css" rel="stylesheet" />
+</head>
+
+
+<body style="background-color:darkslategrey">
+    <div class="topnav" style="text-align:center">
+
+
+        <a class="active" asp-action="AddDoctor" asp-controller="Home" method="Post">AddDoctor</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="AddPatient" asp-controller="Home" method="Post">AddPatient</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="AddAppointment" asp-controller="Home" method="Post">AddAppointment</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="CancelAppointment" asp-controller="Home" method="Post">CancelAppointment</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="DoctorInformation" asp-controller="Home" method="Post">DoctorInformation</a>
+        <a class="active" asp-action="Index" asp-controller="Home" method="Post">Logout</a>
+
+    </div>
+
+
+</body>
+
+@using (Html.BeginForm("DocValidate", "Home", FormMethod.Post))
+{
+    <style>
+        body {
+            background-image: url("/images/DocBG.jpg");
+        }
+    </style>
+
+    
+
+    @*<script type="text/javascript">
+        function clicked() {
+            alert('Details Added');
+        }</script>*@
+<table align="center">
+    <tr>
+        <td>
+            <h1>Add New Doctor</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Doctor_FirstName:
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Doctor_FirstName)
+            @Html.ValidationMessageFor(m => m.Doctor_FirstName)<br /><br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Doctor_LastName:
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Doctor_LastName)
+            @Html.ValidationMessageFor(m => m.Doctor_LastName)<br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+            Doctor_Gender:
+        </td>
+        <td>
+            <br />
+            @Html.RadioButtonFor(m => m.Doctor_Sex, "Male")Male<br />
+            @Html.RadioButtonFor(m => m.Doctor_Sex, "Female")Female<br />
+            @Html.RadioButtonFor(m => m.Doctor_Sex, "Others")Others<br />
+            @Html.ValidationMessageFor(m => m.Doctor_Sex)
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Doctor_Specialisation:
+        </td>
+        <td>
+            <br />
+            @Html.RadioButtonFor(m => m.Doctor_Specialisation, " General") General<br />
+            @Html.RadioButtonFor(m => m.Doctor_Specialisation, " Internal Medicine") Internal Medicine<br />
+            @Html.RadioButtonFor(m => m.Doctor_Specialisation, "  Pediatrics")  Pediatrics<br />
+            @Html.RadioButtonFor(m => m.Doctor_Specialisation, " Orthopedics") Orthopedics<br />
+            @Html.RadioButtonFor(m => m.Doctor_Specialisation, " Ophthalmology")Ophthalmology<br />
+            @Html.ValidationMessageFor(m => m.Doctor_Specialisation)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Doctor_VisitingHours:
+        </td>
+        <td>
+            <br />
+            @Html.RadioButtonFor(m => m.Doctor_VisitingHours, "10AM-1PM")10AM-1PM<br />
+            @Html.RadioButtonFor(m => m.Doctor_VisitingHours, "9AM-12PM")9AM-12PM<br />
+            @Html.RadioButtonFor(m => m.Doctor_VisitingHours, "2PM-5PM")2PM-5PM<br />
+            @Html.ValidationMessageFor(m => m.Doctor_VisitingHours)
+        </td>
+    </tr>
+    <tr>
+        @*<td><input type="submit" onclick="clicked();" value="Add" /></td>*@
+    </tr>
+</table><br />
+            
+<center><input type="submit" value="Add" style="background-color:mediumspringgreen" /></center>
+           
+        
+  
+
+
+
+}

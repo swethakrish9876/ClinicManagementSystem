@@ -1,0 +1,107 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ProjectClinic.Models.Patient
+
+<img src="~/Images/Stone-Clinic-Logo.png" alt="Logo" align="left" height="100" width="100" />
+<br />
+
+<head>
+    <link href="~/css/MyStyleSheet.css" rel="stylesheet" />
+</head>
+
+
+<body style="background-color:darkslategrey">
+    <div class="topnav" style="text-align:center">
+
+
+        <a class="active" asp-action="AddDoctor" asp-controller="Home" method="Post">AddDoctor</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="AddPatient" asp-controller="Home" method="Post">AddPatient</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="AddAppointment" asp-controller="Home" method="Post">AddAppointment</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="CancelAppointment" asp-controller="Home" method="Post">CancelAppointment</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="PatientInformation" asp-controller="Home" method="Post">PatientInformation</a>
+        <a class="active" asp-action="Index" asp-controller="Home" method="Post">Logout</a>
+
+    </div>
+
+
+</body>
+
+@using (Html.BeginForm("PatValidate", "Home", FormMethod.Post))
+{
+    <style>
+        body {
+            background-image: url("/images/DocBG.jpg");
+        }
+    </style>
+
+    <table align="center">
+        <tr>
+            <td>
+                <h1>Add New Patient</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Patient_FirstName:
+            </td>
+            <td>
+                <br />
+                @Html.TextBoxFor(m => m.Patient_FirstName)<br /><br />
+                @Html.ValidationMessageFor(m => m.Patient_FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Patient_LastName:
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Patient_LastName)<br />
+                @Html.ValidationMessageFor(m => m.Patient_LastName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                Patient_Gender:
+            </td>
+            <td>
+                <br />
+                @Html.RadioButtonFor(m => m.Patient_Sex, "Male")Male<br />
+                @Html.RadioButtonFor(m => m.Patient_Sex, "Female")Female<br />
+                @Html.RadioButtonFor(m => m.Patient_Sex, "Others")Others<br />
+                @Html.ValidationMessageFor(m => m.Patient_Sex)
+
+            </td>
+        </tr>
+        @*<tr>
+            <td>
+                <br />
+                Patient_Age:
+            </td>
+            <td>
+                <br />
+                @Html.TextBoxFor(m => m.Patient_Age)<br />
+                @Html.ValidationMessageFor(m => m.Patient_Age)
+            </td>
+        </tr>*@
+
+        <tr>
+            <td>
+                <br />
+                Patient_Date_Of_Birth:
+            </td>
+            <td>
+                <br />
+                <input type="date" name="Patient_DOB" required="Required" /><br />
+                @Html.ValidationMessageFor(m => m.Patient_DOB)
+            </td>
+        </tr>
+
+    </table><br />
+    <center><input type="submit" value="Add" style="background-color:mediumspringgreen" /></center>
+   
+
+}

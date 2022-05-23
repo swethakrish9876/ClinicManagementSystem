@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<ProjectClinic.Models.Patient>
+
+
+<br />
+<br />
+<img src="~/Images/Arrow.jpg" align="left" height="30" width="30" />
+
+@using (Html.BeginForm("AddPatient", "Home", FormMethod.Post))
+{
+    <input type="submit" value="Go Back" action="AddPatient" style="background-color:grey" />
+}
+<br />
+
+
+@using (Html.BeginForm("PatientInformation", "Home", FormMethod.Post))
+{
+
+    <style>
+        body {
+            background-image: url("/images/InfoBG.jpg");
+        }
+    </style>
+
+
+    <table class="table">
+        <thead>
+
+
+
+            <tr>
+
+
+                <th>@Html.DisplayName("Patient_FirstName")</th>
+                <th>@Html.DisplayName("Patient_LastName")</th>
+                <th>@Html.DisplayName("Patient_Sex")</th>
+                <th>@Html.DisplayName("Patient_Age")</th>
+                <th>@Html.DisplayName("Patient_Date_Of_Birth")</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Patient_FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Patient_LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Patient_Sex)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Patient_Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Patient_DOB)
+                    </td>
+
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}

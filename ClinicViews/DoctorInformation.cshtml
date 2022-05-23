@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model IEnumerable<ProjectClinic.Models.Doctor>
+
+<br /><br />
+<img src="~/Images/Arrow.jpg" align="left" height="30" width="30"/>
+
+@using (Html.BeginForm("AddDoctor", "Home", FormMethod.Post))
+{
+    <input type="submit" value="Go Back" action="AddDoctor" style="background-color:grey" />
+}
+<br />
+@using (Html.BeginForm("DoctorInformation", "Home", FormMethod.Post))
+{
+
+
+
+    <style>
+        body {
+            background-image: url("/images/InfoBG.jpg");
+        }
+    </style>
+
+    <table class="table">
+        <thead>
+
+
+
+            <tr>
+
+                <th>@Html.DisplayName("DoctorId")</th>
+                <th>@Html.DisplayName("Doctor_FirstName")</th>
+                <th>@Html.DisplayName("Doctor_LastName")</th>
+                <th>@Html.DisplayName("Doctor_Sex")</th>
+                <th>@Html.DisplayName("Doctor_Specialisation")</th>
+                <th>@Html.DisplayName("Doctor_VisitingHours")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.DoctorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Doctor_FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Doctor_LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Doctor_Sex)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Doctor_Specialisation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Doctor_VisitingHours)
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+}

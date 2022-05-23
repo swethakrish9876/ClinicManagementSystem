@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <input type="submit" value="Go Back" action="Index" style="background-color:grey" />
+}
+
+
+<h1>Sorry Something Went Wrong!</h1>
+
+<h2>Please Enter Valid UserName Password to Login</h2>
+<style>
+    h2 {
+        color: red;
+    }
+
+
+    body {
+        background-image: url("/Images/FailedBG.jpg");
+    }
+</style>
+<body style="background-size:cover">
+</body>
+<center><img src="~/Images/Invalid.JPG" align="right" height="400" width="400" /></center>

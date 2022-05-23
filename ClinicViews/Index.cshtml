@@ -1,0 +1,51 @@
+﻿@model ProjectClinic.Models.Login
+
+@using (Html.BeginForm("ValidateIndex", "Home", FormMethod.Post))
+
+{
+    
+
+
+    <style>
+        body {
+            background-image: url("/Images/LoginBG.jpg");
+        }
+    </style>
+
+    <img src="~/Images/Stone-Clinic-Logo.png" alt="Logo" align="left" height="100" width="100" />
+    <h1><centre><b>Stone-Clinic Welcomes You</b></centre></h1>
+
+    <br /><br /><br /><br /><br />
+    <h2>Login with UserName and Password</h2><br />
+    <table>
+        <tr>
+            <td>
+                UserName:
+            </td>
+
+
+            <td>
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Password:
+            </td>
+
+
+            <td>
+                @Html.PasswordFor(m => m.Passwrd)
+                @Html.ValidationMessageFor(m => m.Passwrd)
+            </td>
+        </tr>
+    </table>
+
+
+    <input type="submit" value="Login" action="Home" />
+}
+
+

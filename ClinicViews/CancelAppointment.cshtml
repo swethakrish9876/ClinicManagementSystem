@@ -1,0 +1,148 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*@model ProjectClinic.Models.CancelAppoint
+
+    <head>
+        <link href="~/css/MyStyleSheet.css" rel="stylesheet" />
+    </head>
+    <body style="background-color:darkblue">
+        <div class="topnav">
+            <div style="text-align:left">
+                <a class="active" asp-action="Home" asp-controller="Home" method="Post">Home</a>
+                <a asp-action="Index" asp-controller="Home" method="Post">LogOut</a>
+
+            </div>
+
+        </div>
+
+    </body>
+
+    <h1>Cancel Your Appointment Here</h1>
+    @Html.BeginForm("CanValidate", "Home", FormMethod.Post)
+            {
+    <style>
+        body {
+            background-image: url("/images/DocBG.jpg");
+        }
+    </style>
+    <img src="~/Images/Stone-Clinic-Logo.png" alt="Logo" align="right" height="100" width="100" />
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayName("PatientId")
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.EditorFor(m => m.PatientId)
+                    @Html.ValidationMessageFor(m => m.PatientId)
+                </td>
+                @using (Html.BeginForm("Home", "Home", FormMethod.Post))
+                {
+                    <td>
+                        <input type="submit" value="Delete" />
+                    </td>
+                }
+            </tr>
+        </tbody>
+
+    </table>
+            }*@
+
+
+
+
+
+
+
+@model IEnumerable<ProjectClinic.Models.Appointment>
+
+
+<img src="~/Images/Stone-Clinic-Logo.png" alt="Logo" align="left" height="100" width="100" />
+<br />
+
+<head>
+    <link href="~/css/MyStyleSheet.css" rel="stylesheet" />
+</head>
+
+
+<body style="background-color:darkslategrey">
+    <div class="topnav" style="text-align:center">
+
+
+        <a class="active" asp-action="AddDoctor" asp-controller="Home" method="Post">AddDoctor</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="AddPatient" asp-controller="Home" method="Post">AddPatient</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="AddAppointment" asp-controller="Home" method="Post">AddAppointment</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="CancelAppointment" asp-controller="Home" method="Post">CancelAppointment</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" asp-action="Index" asp-controller="Home" method="Post">Logout</a>
+
+    </div>
+
+
+</body>
+
+<h1>Cancel Your Appointment Here</h1>
+
+@using (Html.BeginForm("CancelAppointment", "Home", FormMethod.Post))
+{
+
+
+    <style>
+        body {
+            background-image: url("/images/DocBG.jpg");
+        }
+    </style>
+
+    <table class="table">
+        <thead>
+
+
+
+            <tr>
+
+                <th>@Html.DisplayName("PatientID")</th>
+                <th>@Html.DisplayName("Specialisations")</th>
+                <th>@Html.DisplayName("DoctorName")</th>
+                <th>@Html.DisplayName("VisitDate")</th>
+                <th>@Html.DisplayName("AppointmentTime")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.PatientId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Specialisation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Doctor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Visit_Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Appointment_Time)
+                    </td>
+
+                </tr>
+            }
+            <tr>
+                <td>
+
+                    <input type="submit" value="Cancel Appointment" asp-action="DeleteApp" style="background-color:mediumspringgreen" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
